@@ -15,26 +15,10 @@
  */
 package com.facebook.soloader.nativeloader.delegate;
 
-import android.content.Context;
-import java.io.IOException;
-
-/** Interface used to connect chosen loader of native libaries to NativeLoader */
+/** Interface used to connect chosen loader of native libraries to NativeLoader */
 public interface NativeLoaderDelegate {
   /**
-   * Initializes native code loading for this app; this class's other static facilities cannot be
-   * used until {@link #init} is called. This method is idempotent: calls after the first are
-   * ignored.
-   *
-   * @param context application context.
-   */
-  void init(Context context) throws IOException;
-
-  /**
-   * Load a shared library, initializing any JNI binding it contains.
-   *
-   * @param shortName Name of library to find, without "lib" prefix or ".so" suffix
-   * @return Whether the library was loaded as a result of this call (true), or loading wasn't
-   *     successful (false).
+   * @see com.facebook.soloader.nativeloader.NativeLoader#loadLibrary(String)
    */
   boolean loadLibrary(String shortName);
 }
